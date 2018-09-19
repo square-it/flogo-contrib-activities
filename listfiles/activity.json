@@ -1,0 +1,24 @@
+{
+  "name": "listfiles",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "lists filenames of a directory",
+  "author": "fabien.fassler@sqits.net",
+  "ref":"https://github.com/square-it/flogo-contrib-activities",
+  "inputs":[
+    {
+      "name": "directory",
+      "type": "string"
+    },
+    {
+	    "name":"recursive",
+	    "type":"boolean"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "filenames",
+      "type": "array"
+    }
+  ]
+}
