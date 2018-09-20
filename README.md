@@ -3,4 +3,4 @@ Collection of Flogo activities.
 
 ## Contributions
 
-* [listfiles](activity/listfiles): List files of a directory
+* [listfiles](listfiles): List files of a directory
