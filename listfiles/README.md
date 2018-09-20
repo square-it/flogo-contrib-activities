@@ -6,7 +6,7 @@ This activity allows you to list filenames of a directory recursively or not.
 This activity is not available with the Flogo Web UI
 ### Flogo CLI
 ```bash
-flogo install activity github.com/square-it/flogo-contrib-activities/listfiles
+flogo install github.com/square-it/flogo-contrib-activities/listfiles
 ```
 
 ## Schema
