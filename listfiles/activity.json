@@ -4,7 +4,7 @@
   "type": "flogo:activity",
   "description": "lists filenames of a directory",
   "author": "fabien.fassler@sqits.net",
-  "ref":"https://github.com/square-it/flogo-contrib-activities",
+  "ref":"github.com/square-it/flogo-contrib-activities/listfiles",
   "inputs":[
     {
       "name": "directory",
