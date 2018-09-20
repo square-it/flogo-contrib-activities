@@ -1,2 +1,6 @@
 # flogo-contrib-activities
-Flogo Contribution repo. Contains activities, triggers, models and actions.
+Collection of Flogo activities.
+
+## Contributions
+
+* [listfiles](activity/listfiles): List files of a directory
