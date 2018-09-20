@@ -2,6 +2,7 @@
   "name": "listfiles",
   "version": "0.0.1",
   "type": "flogo:activity",
+  "title": "List Files",
   "description": "lists filenames of a directory",
   "author": "fabien.fassler@sqits.net",
   "ref":"github.com/square-it/flogo-contrib-activities/listfiles",
