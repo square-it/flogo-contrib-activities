@@ -1,0 +1,22 @@
+{
+  "name": "removefile",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "title": "Remove File",
+  "description": "Remove a file or an directory",
+  "author": "fabien.fassler@sqits.net",
+  "ref":"github.com/square-it/flogo-contrib-activities/removefile",
+  "inputs":[
+    {
+      "name": "path",
+      "type": "string"
+    },
+    {
+      "name": "recursive",
+      "type": "boolean",
+      "value" : "false"
+    }
+  ],
+  "outputs": [
+  ]
+}
