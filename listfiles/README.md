@@ -4,7 +4,7 @@ This activity allows you to list filenames of a directory recursively or not.
 ## Installation
 ### Flogo Web
 
-Start
+#### Start
 
 Start a container of Flogo Web UI :
 
@@ -13,7 +13,7 @@ docker run --name flogo -it -d -p 3303:3303 -e FLOGO_NO_ENGINE_RECREATION=false 
 ```
 *The environment variable FLOGO_NO_ENGINE_RECREATION=false allows to force import of installed contributions.*
 
-Installation of the activity
+#### Installation of the activity
 
 To install the activity into the started container :
 
