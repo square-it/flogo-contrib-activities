@@ -12,8 +12,8 @@
       "type": "string"
     },
     {
-	    "name":"recursive",
-	    "type":"boolean"
+      "name":"recursive",
+      "type":"boolean"
     }
   ],
   "outputs": [
