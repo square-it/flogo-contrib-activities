@@ -43,7 +43,8 @@ Inputs and Outputs:
     },
     {
       "name":"recursive",
-      "type":"boolean"
+      "type":"boolean",
+      "value": false
     }
   ],
   "outputs": [
