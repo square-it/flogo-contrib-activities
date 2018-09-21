@@ -1,9 +1,31 @@
-# Counter
+# List Files
 This activity allows you to list filenames of a directory recursively or not.
 
 ## Installation
 ### Flogo Web
-This activity is not available with the Flogo Web UI
+
+Start
+
+Start a container of Flogo Web UI :
+
+```bash
+docker run --name flogo -it -d -p 3303:3303 -e FLOGO_NO_ENGINE_RECREATION=false flogo/flogo-docker eula-accept
+```
+*The environment variable FLOGO_NO_ENGINE_RECREATION=false allows to force import of installed contributions.*
+
+Installation of the activity
+
+To install the activity into the started container :
+
+```bash
+docker exec -it flogo sh -c 'cd /tmp/flogo-web/build/server/local/engines/flogo-web && flogo install github.com/square-it/flogo-contrib-activities/listfiles'
+```
+
+Restart the container
+```bash
+docker restart flogo
+```
+
 ### Flogo CLI
 ```bash
 flogo install github.com/square-it/flogo-contrib-activities/listfiles
