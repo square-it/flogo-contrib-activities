@@ -42,8 +42,8 @@ Inputs and Outputs:
       "type": "string"
     },
     {
-	    "name":"recursive",
-	    "type":"boolean"
+      "name":"recursive",
+      "type":"boolean"
     }
   ],
   "outputs": [
@@ -58,7 +58,7 @@ Inputs and Outputs:
 | Setting     | Required | Description |
 |:------------|:---------|:------------|
 | directory   | False    | The directory to be listed |         
-| recursive   | False    | If this field is set to true, list recursively. |
+| recursive   | False    | If this field is set to true, list recursively. This field defaults to false |
 | filenames   | False    | The list of filenames |
 
 
