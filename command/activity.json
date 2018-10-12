@@ -1,0 +1,59 @@
+{
+  "name": "command",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "title": "Command",
+  "description": "Execute a command",
+  "author": "fabien.fassler@sqits.net",
+  "ref":"github.com/square-it/flogo-contrib-activities/command",
+  "inputs":[
+    {
+      "name": "command",
+      "type": "string",
+      "required" : "true"
+    },
+    {
+      "name": "arguments",
+      "type": "array",
+      "value": []
+    },
+    {
+      "name": "directory",
+      "type": "string"
+    },
+    {
+      "name": "environment",
+      "type": "array",
+      "value": []
+    },
+    {
+      "name":"useCurrentEnvironment",
+      "type":"boolean",
+      "value": true
+    },
+    {
+      "name":"timeout",
+      "type":"integer",
+      "value": 0
+    },
+    {
+      "name":"wait",
+      "type":"boolean",
+      "value": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "output",
+      "type": "string"
+    },
+    {
+      "name": "exitCode",
+      "type": "integer"
+    },
+    {
+      "name":"success",
+      "type":"boolean"
+    }
+  ]
+}
