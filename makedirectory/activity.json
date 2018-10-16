@@ -1,0 +1,28 @@
+{
+  "name": "makedirectory",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "title": "Make Directory",
+  "description": "Make a directory",
+  "author": "fabien.fassler@sqits.net",
+  "ref":"github.com/square-it/flogo-contrib-activities/makedirectory",
+  "inputs":[
+    {
+      "name": "path",
+      "type": "string",
+      "required": "true"
+    },
+    {
+      "name":"all",
+      "type":"boolean",
+      "value": false
+    },
+    {
+      "name":"permissions",
+      "type":"string",
+      "value": "0777"
+    }
+  ],
+  "outputs": [
+  ]
+}
