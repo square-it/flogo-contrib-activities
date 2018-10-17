@@ -1,0 +1,19 @@
+{
+  "name": "sleep",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "title": "Sleep",
+  "description": "Sleeps for a specified amount of time",
+  "author": "mathieu.debove@sqits.net",
+  "ref": "github.com/square-it/flogo-contrib-activities/sleep",
+  "inputs": [
+    {
+      "name": "duration",
+      "type": "string",
+      "required": "true"
+    }
+  ],
+  "outputs": [
+
+  ]
+}
