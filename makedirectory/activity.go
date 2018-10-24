@@ -1,4 +1,4 @@
-package removefile
+package makedirectory
 
 import (
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
