@@ -32,11 +32,30 @@ func (a *Activity) Metadata() *activity.Metadata {
 
 // Enable PWM, then set Frequency and DutyCycle on the given GPIO pin
 func (a *Activity) Eval(context activity.Context) (done bool, err error) {
-	pinNumber := context.GetInput(pinNumberInput).(int)
-	frequency := context.GetInput(frequencyInput).(int)
-	dutyLength := context.GetInput(dutyLengthInput).(uint32)
-	cycleLength := context.GetInput(cycleLengthInput).(uint32)
-	logger.Debugf("Eval for gpiopwm(%s=%d, %s=%d, %s=%d, %s=%d)", pinNumberInput, pinNumber, frequencyInput, frequency, dutyLengthInput, dutyLength, cycleLengthInput, cycleLength)
+
+	pinNumber, ok := context.GetInput(pinNumberInput).(int)
+	if !ok {
+		logger.Errorf("Input value for %s is not a valid int", pinNumberInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", pinNumberInput))
+	}
+
+	frequency, ok := context.GetInput(frequencyInput).(int)
+	if !ok {
+		logger.Errorf("Input value for %s is not a valid int", frequencyInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", frequencyInput))
+	}
+
+	dutyLength, ok := context.GetInput(dutyLengthInput).(uint32)
+	if !ok {
+		logger.Errorf("Input value for %s is not a valid int", dutyLengthInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", dutyLengthInput))
+	}
+
+	cycleLength, ok := context.GetInput(cycleLengthInput).(uint32)
+	if !ok {
+		logger.Errorf("Input value for %s is not a valid int", cycleLengthInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", cycleLengthInput))
+	}
 
 	if os.Getegid() != 0 {
 		logger.Error("PWM control requires to run as root")
