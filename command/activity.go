@@ -39,7 +39,7 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 		return false, nil
 	}
 
-	if (command == "") {
+	if command == "" {
 		log.Error("The input command is required.")
 		return false, nil
 	}
@@ -50,7 +50,7 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	inputArguments := activityContext.GetInput("arguments")
 	var arguments = make([]string, 0)
 
-	if (inputArguments != nil) {
+	if inputArguments != nil {
 		arguments, ok = inputArguments.([]string)
 
 		if !ok {
@@ -92,7 +92,7 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 		environment = make([]string, 0)
 	}
 
-	if (inputEnvironment != nil) {
+	if inputEnvironment != nil {
 		extendsEnvironment, ok := inputEnvironment.([]string)
 
 		if !ok {
