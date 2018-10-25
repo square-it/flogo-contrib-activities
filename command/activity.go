@@ -190,10 +190,6 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 
 	}
 
-	log.Debugf("Command success : %v", activityContext.GetOutput("success"))
-	log.Debugf("Command exitCode : %v", activityContext.GetOutput("exitCode"))
-	log.Debugf("Command output : %s", activityContext.GetOutput("output"))
-
 	return true, nil
 }
 
