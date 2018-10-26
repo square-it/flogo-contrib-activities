@@ -87,7 +87,7 @@ See https://godoc.org/github.com/stianeikeland/go-rpio#SetDutyCycle for more det
 {
   "id": "gpiopwm_1",
   "name": "GPIO PWM",
-  "description": "List a directory",
+  "description": "Perform PWM control on Raspberry GPIO. Requires root access.",
   "activity": {
     "ref": "github.com/square-it/flogo-contrib-activities/command",
     "input": {
@@ -108,7 +108,7 @@ See https://godoc.org/github.com/stianeikeland/go-rpio#SetDutyCycle for more det
 {
   "id": "gpiopwm_1",
   "name": "GPIO PWM",
-  "description": "List a directory",
+  "description": "Perform PWM control on Raspberry GPIO. Requires root access.",
   "activity": {
     "ref": "github.com/square-it/flogo-contrib-activities/command",
     "input": {
