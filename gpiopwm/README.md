@@ -1,7 +1,7 @@
 # GPIO PWM activity
 This activity allows you control PWM pins of a Raspberry Pi.
 
-> **The GPIO PWM activity requires that flogo runs as root.**
+> **WARNING: The GPIO PWM activity requires that flogo runs as root.**
 
 ## Installation
 ### Flogo Web
