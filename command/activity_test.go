@@ -109,6 +109,33 @@ func TestEvalInputArgumentsDefault(t *testing.T) {
 	assert.True(t, tc.GetOutput("output") != "")
 }
 
+func TestEvalInputArguments(t *testing.T) {
+
+	defer func() {
+		if r := recover(); r != nil {
+			t.Failed()
+			t.Errorf("panic during execution: %v", r)
+		}
+	}()
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(getActivityMetadata())
+
+	tc.SetInput("command", "ls")
+	arguments := []interface{}{"-l"}
+	tc.SetInput("arguments", arguments)
+	tc.SetInput("wait", act.Metadata().Input["wait"].Value())
+	tc.SetInput("useCurrentEnvironment", act.Metadata().Input["useCurrentEnvironment"].Value())
+	tc.SetInput("timeout", act.Metadata().Input["timeout"].Value())
+
+	done, err := act.Eval(tc)
+
+	//check result attr
+	assert.True(t, done)
+	assert.True(t, err == nil)
+	assert.True(t, tc.GetOutput("output") != "")
+}
+
 func TestEvalInputArgumentsWrongType(t *testing.T) {
 
 	defer func() {
@@ -173,6 +200,43 @@ func TestEvalInputUseCurrentEnvironmentWrongType(t *testing.T) {
 	//check result attr
 	assert.False(t, done)
 	assert.True(t, err == nil)
+}
+
+func TestEvalInputEnvironment(t *testing.T) {
+
+	defer func() {
+		if r := recover(); r != nil {
+			t.Failed()
+			t.Errorf("panic during execution: %v", r)
+		}
+	}()
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(getActivityMetadata())
+
+	tc.SetInput("command", "ls")
+	environment := []interface{}{"KEY=VALUE"}
+	tc.SetInput("environment", environment)
+	tc.SetInput("wait", act.Metadata().Input["wait"].Value())
+	tc.SetInput("useCurrentEnvironment", act.Metadata().Input["useCurrentEnvironment"].Value())
+	tc.SetInput("timeout", act.Metadata().Input["timeout"].Value())
+
+	done, err := act.Eval(tc)
+
+	//check result attr
+	assert.True(t, done)
+	assert.True(t, err == nil)
+	assert.True(t, tc.GetOutput("output") != "")
+
+	environmentStr := []string{"KEY=VALUE"}
+	tc.SetInput("environment", environmentStr)
+
+	done, err = act.Eval(tc)
+
+	//check result attr
+	assert.True(t, done)
+	assert.True(t, err == nil)
+	assert.True(t, tc.GetOutput("output") != "")
 }
 
 func TestEvalInputEnvironmentWrongType(t *testing.T) {
