@@ -44,8 +44,7 @@ Inputs and Outputs:
     },
     {
       "name": "arguments",
-      "type": "array",
-      "value": []
+      "type": "array"
     },
     {
       "name": "directory",
