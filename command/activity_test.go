@@ -155,7 +155,7 @@ func TestEvalInputArgumentsWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputDirectoryWrongType(t *testing.T) {
@@ -258,7 +258,7 @@ func TestEvalInputEnvironmentWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputTimeoutWrongType(t *testing.T) {
@@ -303,6 +303,30 @@ func TestEvalInputWaitWrongType(t *testing.T) {
 	//check result attr
 	assert.False(t, done)
 	assert.True(t, err == nil)
+}
+
+func TestLookPathNotFound(t *testing.T) {
+
+	defer func() {
+		if r := recover(); r != nil {
+			t.Failed()
+			t.Errorf("panic during execution: %v", r)
+		}
+	}()
+
+	act := NewActivity(getActivityMetadata())
+	tc := test.NewTestActivityContext(getActivityMetadata())
+
+	tc.SetInput("command", "notFound")
+	tc.SetInput("wait", act.Metadata().Input["wait"].Value())
+	tc.SetInput("useCurrentEnvironment", act.Metadata().Input["useCurrentEnvironment"].Value())
+	tc.SetInput("timeout", act.Metadata().Input["timeout"].Value())
+
+	done, err := act.Eval(tc)
+
+	//check result attr
+	assert.False(t, done)
+	assert.True(t, err != nil)
 }
 
 func TestRun(t *testing.T) {
