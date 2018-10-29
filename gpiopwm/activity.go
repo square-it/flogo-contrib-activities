@@ -12,7 +12,7 @@ import (
 const (
 	cycleLengthInput = "cycleLength"
 	dutyLengthInput  = "dutyLength"
-	frequencyInput   = "frequency"
+	frequencyInput   = "pwmFrequency"
 	pinNumberInput   = "pinNumber"
 )
 
@@ -47,14 +47,14 @@ func (a *Activity) Eval(context activity.Context) (done bool, err error) {
 
 	dutyLength, ok := context.GetInput(dutyLengthInput).(uint32)
 	if !ok {
-		logger.Errorf("Input value for %s is not a valid int", dutyLengthInput)
-		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", dutyLengthInput))
+		logger.Errorf("Input value for %s is not a valid uint32", dutyLengthInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid uint32", dutyLengthInput))
 	}
 
 	cycleLength, ok := context.GetInput(cycleLengthInput).(uint32)
 	if !ok {
-		logger.Errorf("Input value for %s is not a valid int", cycleLengthInput)
-		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid int", cycleLengthInput))
+		logger.Errorf("Input value for %s is not a valid uint32", cycleLengthInput)
+		return false, errors.New(fmt.Sprintf("Input value for %s is not a valid uint32", cycleLengthInput))
 	}
 
 	if os.Getegid() != 0 {

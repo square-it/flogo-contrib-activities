@@ -20,12 +20,12 @@
     },
     {
       "name": "dutyLength",
-      "type": "uint32",
+      "type": "int",
       "required": true
     },
     {
       "name": "cycleLength",
-      "type": "uint32",
+      "type": "int",
       "required": true
     }
   ],
