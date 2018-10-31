@@ -36,13 +36,15 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	command, ok := activityContext.GetInput("command").(string)
 
 	if !ok {
-		log.Error("The input command is not a string.")
-		return false, nil
+		s := "The input command is not a string."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	if command == "" {
-		log.Error("The input command is required.")
-		return false, nil
+		s := "The input command is required."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	log.Debugf("Input command : %s", command)
@@ -60,8 +62,9 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	directory, ok := activityContext.GetInput("directory").(string)
 
 	if !ok {
-		log.Error("The input directory is not a string.")
-		return false, nil
+		s := "The input directory is not a string."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	log.Debugf("Input directory : %s", directory)
@@ -70,8 +73,9 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	useCurrentEnvironment, ok := activityContext.GetInput("useCurrentEnvironment").(bool)
 
 	if !ok {
-		log.Error("The input useCurrentEnvironment is not a boolean.")
-		return false, nil
+		s := "The input useCurrentEnvironment is not a boolean."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	log.Debugf("Input useCurrentEnvironment : %v", useCurrentEnvironment)
@@ -99,8 +103,9 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	timeout, ok := activityContext.GetInput("timeout").(int)
 
 	if !ok {
-		log.Error("The input timeout is not a integer.")
-		return false, nil
+		s := "The input timeout is not a integer."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	log.Debugf("Input timeout : %v", timeout)
@@ -109,8 +114,9 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	wait, ok := activityContext.GetInput("wait").(bool)
 
 	if !ok {
-		log.Error("The input wait is not a boolean.")
-		return false, nil
+		s := "The input wait is not a boolean."
+		log.Error(s)
+		return false, errors.New(s)
 	}
 
 	log.Debugf("Input wait : %v", wait)
