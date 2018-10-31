@@ -50,17 +50,10 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	log.Debugf("Input command : %s", command)
 
 	//check input arguments
-	inputArguments := activityContext.GetInput("arguments")
-	var arguments = make([]string, 0)
+	arguments, ok, err := a.checkAndGetStringArrays(activityContext, "arguments")
 
-	if inputArguments != nil {
-		arguments, ok = inputArguments.([]string)
-
-		if !ok {
-			s := "The input arguments is not a array of strings."
-			log.Error(s)
-			return false, errors.New(s)
-		}
+	if !ok {
+		return false, err
 	}
 
 	log.Debugf("Input arguments : %s", arguments)
@@ -88,8 +81,6 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 	log.Debugf("Input useCurrentEnvironment : %v", useCurrentEnvironment)
 
 	//check input environment
-	inputEnvironment := activityContext.GetInput("environment")
-
 	var environment []string
 
 	if useCurrentEnvironment {
@@ -98,17 +89,13 @@ func (a *CommandActivity) Eval(activityContext activity.Context) (done bool, err
 		environment = make([]string, 0)
 	}
 
-	if inputEnvironment != nil {
-		extendsEnvironment, ok := inputEnvironment.([]string)
+	extendsEnvironment, ok, err := a.checkAndGetStringArrays(activityContext, "environment")
 
-		if !ok {
-			s := "The input environment is not a array of strings."
-			log.Error(s)
-			return false, errors.New(s)
-		}
-
-		environment = append(environment, extendsEnvironment...)
+	if !ok {
+		return false, err
 	}
+
+	environment = append(environment, extendsEnvironment...)
 
 	log.Debugf("Input environment : %s", environment)
 
@@ -229,4 +216,30 @@ func (a *CommandActivity) complete(activityContext activity.Context, buf bytes.B
 	log.Debugf("Command output : %s", activityContext.GetOutput("output"))
 
 	return true, nil
+}
+
+func (a *CommandActivity) checkAndGetStringArrays(activityContext activity.Context, input string) ([]string, bool, error) {
+	inputArrays := activityContext.GetInput(input)
+	var arrays = make([]string, 0)
+
+	if inputArrays != nil {
+		interfaceArrays, ok := inputArrays.([]interface{})
+
+		if !ok {
+			arrays, ok = inputArrays.([]string)
+			if !ok {
+				e := "The input " + input + " is not a array."
+				log.Error(e)
+				return arrays, false, errors.New(e)
+			}
+		} else {
+			for _, item := range interfaceArrays {
+				s, ok := item.(string)
+				if ok {
+					arrays = append(arrays, s)
+				}
+			}
+		}
+	}
+	return arrays, true, nil
 }

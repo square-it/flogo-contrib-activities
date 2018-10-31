@@ -14,8 +14,7 @@
     },
     {
       "name": "arguments",
-      "type": "array",
-      "value": []
+      "type": "array"
     },
     {
       "name": "directory",
@@ -23,8 +22,7 @@
     },
     {
       "name": "environment",
-      "type": "array",
-      "value": []
+      "type": "array"
     },
     {
       "name":"useCurrentEnvironment",

@@ -1,0 +1,34 @@
+{
+  "name": "gpiopwm",
+  "title": "GPIO PWM",
+  "version": "1.0.0",
+  "type": "flogo:activity",
+  "description": "Perform PWM control on Raspberry GPIO. Requires root access.",
+  "ref": "github.com/square-it/flogo-contrib-activities/gpiopwm",
+  "author": "Emilien THOMAS <emilien.thomas@sqits.net>",
+  "inputs":[
+    {
+      "name": "pinNumber",
+      "type": "int",
+      "required": true,
+      "allowed": [12, 13, 18, 19, 40, 41, 45]
+    },
+    {
+      "name": "pwmFrequency",
+      "type": "int",
+      "required": true
+    },
+    {
+      "name": "dutyLength",
+      "type": "int",
+      "required": true
+    },
+    {
+      "name": "cycleLength",
+      "type": "int",
+      "required": true
+    }
+  ],
+  "outputs": [
+  ]
+}
