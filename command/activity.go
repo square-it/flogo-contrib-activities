@@ -223,23 +223,22 @@ func (a *CommandActivity) checkAndGetStringArrays(activityContext activity.Conte
 	var arrays = make([]string, 0)
 
 	if inputArrays != nil {
-		interfaceArrays, ok := inputArrays.([]interface{})
-
-		if !ok {
-			arrays, ok = inputArrays.([]string)
-			if !ok {
-				e := "The input " + input + " is not a array."
-				log.Error(e)
-				return arrays, false, errors.New(e)
-			}
-		} else {
-			for _, item := range interfaceArrays {
+		switch arraysValue := inputArrays.(type) {
+		case []interface{}:
+			for _, item := range arraysValue {
 				s, ok := item.(string)
 				if ok {
 					arrays = append(arrays, s)
 				}
 			}
+		case []string:
+			arrays = arraysValue
+		default:
+			e := "The input " + input + " is not a array."
+			log.Error(e)
+			return arrays, false, errors.New(e)
 		}
 	}
+
 	return arrays, true, nil
 }
