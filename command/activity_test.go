@@ -60,7 +60,7 @@ func TestEvalInputCommandRequired(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputCommandWrongType(t *testing.T) {
@@ -81,7 +81,7 @@ func TestEvalInputCommandWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputArgumentsDefault(t *testing.T) {
@@ -177,7 +177,7 @@ func TestEvalInputDirectoryWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputUseCurrentEnvironmentWrongType(t *testing.T) {
@@ -199,7 +199,7 @@ func TestEvalInputUseCurrentEnvironmentWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputEnvironment(t *testing.T) {
@@ -280,7 +280,7 @@ func TestEvalInputTimeoutWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestEvalInputWaitWrongType(t *testing.T) {
@@ -302,7 +302,7 @@ func TestEvalInputWaitWrongType(t *testing.T) {
 
 	//check result attr
 	assert.False(t, done)
-	assert.True(t, err == nil)
+	assert.True(t, err != nil)
 }
 
 func TestLookPathNotFound(t *testing.T) {
