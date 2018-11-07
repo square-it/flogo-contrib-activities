@@ -1,0 +1,23 @@
+{
+  "name": "copyfile",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "title": "Copy File",
+  "description": "Copy a file",
+  "author": "fabien.fassler@sqits.net",
+  "ref":"github.com/square-it/flogo-contrib-activities/copyfile",
+  "inputs":[
+    {
+      "name": "source",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name":"destination",
+      "type":"string",
+      "required": true
+    }
+  ],
+  "outputs": [
+  ]
+}
