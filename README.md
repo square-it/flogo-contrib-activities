@@ -8,3 +8,4 @@ Collection of Flogo activities.
 * [listfiles](listfiles): List files of a directory
 * [makedirectory](makedirectory): Make a directory
 * [removefile](removefile): Remove a file or directory
+* [copyfile](copyfile): copy a file
